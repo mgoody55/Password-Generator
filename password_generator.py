@@ -10,12 +10,21 @@ type_selection = int(input('Select password type: \n1. Letters\n2. Letters and N
 
 lists = [lowers, uppers, numbers, symbols]
 
-password = ''
 
-for i in range(length):
-    rand_list = random.randint(0, type_selection)
-    rand_char = random.randint(0, len(lists[rand_list])-1)
+def password_gen():
+    '''
+    Generates password of desired length and complexity.
+    '''
     
-    password += lists[rand_list][rand_char]
+    password = ''
 
-print(f'Your new password is:\n{password}')
+    for i in range(length):
+        rand_list = random.randint(0, type_selection)
+        rand_char = random.randint(0, len(lists[rand_list])-1)
+        
+        password += lists[rand_list][rand_char]
+
+    print(f'Your new password is:\n{password}')
+
+if __name__ == '__main__':
+    password_gen()
